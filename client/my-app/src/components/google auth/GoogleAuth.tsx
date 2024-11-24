@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GoogleOAuthProvider, GoogleLogin, googleLogout } from "@react-oauth/google";
+import styles from "./google-auth.module.css";
 
 const GoogleAuth: React.FC = () => {
   const [user, setUser] = useState<any>(null);
@@ -7,6 +8,7 @@ const GoogleAuth: React.FC = () => {
   const handleLoginSuccess = (credentialResponse: any) => {
     console.log("Login Success:", credentialResponse);
     setUser(credentialResponse);
+    localStorage.setItem("credintial", credentialResponse.credential);
   };
 
   const handleLogout = () => {
@@ -17,8 +19,7 @@ const GoogleAuth: React.FC = () => {
 
   return (
     <GoogleOAuthProvider clientId="704853235569-heorv705ni3to0l35d8sjvdk7o44jbpl.apps.googleusercontent.com">
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h1>Google Login with React</h1>
+      <div>
         {!user ? (
           <GoogleLogin
             onSuccess={handleLoginSuccess}
