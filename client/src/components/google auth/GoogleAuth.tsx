@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { GoogleOAuthProvider, GoogleLogin, googleLogout } from "@react-oauth/google";
-import styles from "./google-auth.module.css";
+//import styles from "./google-auth.module.css";
 
 const GoogleAuth: React.FC = () => {
   const [user, setUser] = useState<any>(null);
