@@ -10,7 +10,7 @@ const GoogleAuth: React.FC = () => {
       setUserToken(tokenResponse.access_token);
       localStorage.setItem("accessToken", tokenResponse.access_token);
     },
-    scope: "https://www.googleapis.com/auth/youtube.readonly",
+    scope: `https://www.googleapis.com/auth/youtube.force-ssl`,
     flow: "implicit",
   });
 
